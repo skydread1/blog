@@ -5,7 +5,7 @@ Blog for my technical articles
 
 ```bash
 # create env
-python3 -m venv blog_venv
+python -m venv blog_venv
 
 # activate env (mac)
 source blog_venv/bin/activate
@@ -26,14 +26,17 @@ django-admin startproject loicblog
 Migrations are Django’s way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema. They’re designed to be mostly automatic, but you’ll need to know when to make migrations, when to run them, and the common problems you might run into.
 
 ```bash
+# create new migrations based on the changes made to the models
+python manage.py makemigrations
+
 # apply and unapply migrations.
-python3 manage.py migrate
+python manage.py migrate
 ```
 
 ## Run server
 ```bash
 # be sure to migrate first
-python3 manage.py runserver  
+python manage.py runserver  
 ```
 
 ## Admin
@@ -47,7 +50,7 @@ One project can have multiple apps such as a blog, an authentication system etc
 So `loicblog` is the project and `blog` is one app inside the project.
 
 ```bash
-python3 manage.py startapp blog
+python manage.py startapp blog
 ```
 
 Then we need to add the `blog` app to the INSTALLED_APPS array in the project `loicblog/settings.py`.
