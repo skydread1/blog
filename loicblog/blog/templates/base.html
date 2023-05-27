@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+        {% block title %}
+            Loic's Blog
+        {% endblock %}
+    </title>
+
+
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Loic's Blog</a>
+            <a href="">Register</a>
+            <a href="">Login</a>
+        </nav>
+    </header>
+    <section class="container">
+        {% block content %}
+        {% endblock %}
+    </section>
+	<script src="index.js"></script>
+  </body>
+</html>
