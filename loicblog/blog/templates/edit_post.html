@@ -7,6 +7,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <h1>Edit Post: {{ post.title}}</h1>
 
 <form method="POST">
@@ -14,5 +15,8 @@
     <button>Edit</button> 
     {{ form.as_p }}
 </form>
+{% else %}
+<h3>You need to login to edit a post</h3>
+{% endif %}
 
 {% endblock %}

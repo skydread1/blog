@@ -11,8 +11,10 @@
 <small>
     By: {{ post.author.first_name }} {{ post.author.last_name }}
     - {{ post.date }}
+    {% if user.is_authenticated %}
     - <a href="{% url 'edit_post' post.pk %}">Edit</a>
     - <a href="{% url 'delete_post' post.pk %}">Delete</a>
+    {% endif %}
 </small>
 <hr>
 <br />
