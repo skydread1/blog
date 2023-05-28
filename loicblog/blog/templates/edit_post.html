@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Loic's Blog: Edit post {{ post.title}} 
+{% endblock %}
+
+{% block content %}
+
+<h1>Edit Post {{ post.title}}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <button>Submit</button> 
+    {{ form.as_p }}
+
+</form>
+
+{% endblock %}

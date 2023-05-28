@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post
-from .forms import PostForm
+from .forms import CreatePostForm, EditPostForm
 
 ## Class-Based Views (CBVs)
 
@@ -15,5 +15,10 @@ class PostDetailsView(DetailView):
 
 class CreatePostView(CreateView):
     model = Post
-    form_class = PostForm
+    form_class = CreatePostForm
     template_name = 'create_post.html'
+
+class EditPostView(UpdateView):
+    model = Post
+    form_class = EditPostForm
+    template_name = 'edit_post.html'

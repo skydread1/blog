@@ -5,8 +5,8 @@
     --link-primary-color: #129bd8;
     --pulse-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
-    --bg-primary-color: #F2F4F3;
-    --bg-secondary-color: #FFE1C4;
+    --bg-primary-color: #F6F4F3;
+    --bg-secondary-color: #fff0d2;
 
     --text-primary-color: #0A0908;
     --text-secondary-color: #22333B;
@@ -51,6 +51,8 @@ section,
 footer {
     margin: auto;
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
     padding-bottom: 1rem;
@@ -139,8 +141,9 @@ li a {
 }
 
 button {
+    cursor: pointer;
     padding: 0.5rem;
-    background-color: var(--bg-primary-color);
+    background-color: var(--bg-secondary-color);
     border-radius: 0.25rem;
     border-width: 2px;
     border-color: var(--text-primary-color);
@@ -284,11 +287,4 @@ nav a:hover {
 
 .active {
     color: var(--active-primary-color);
-}
-
-/* Page - all pages */
-
-section {
-    display: block;
-    margin: 1rem;
 }
