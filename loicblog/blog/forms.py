@@ -8,14 +8,16 @@ class CreatePostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'My post title'}),
             'author': forms.Select(),
+            'date': forms.DateInput(attrs={'type': 'date'}),
             'body': forms.Textarea(attrs={'placeholder': 'My post content'}),
         }
 
 class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'body']
+        fields = ['title', 'date', 'body']
         widgets = {
             'title': forms.TextInput(),
+            'date': forms.DateInput(attrs={'type': 'date'}),
             'body': forms.Textarea(),
         }
