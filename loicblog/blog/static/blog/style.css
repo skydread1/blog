@@ -138,12 +138,19 @@ li a {
     padding: 0;
 }
 
-section button {
+button {
     padding: 0.5rem;
     background-color: var(--bg-primary-color);
     border-radius: 0.25rem;
     border-width: 2px;
     border-color: var(--text-primary-color);
+}
+
+button a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: var(--text-primary-color);
 }
 
 img,
@@ -193,20 +200,6 @@ svg:hover {
 
 /* Form */
 
-form {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-}
-
-@media (max-width: 1024px) {
-    form {
-        display: block;
-    }
-}
-
 form fieldset {
     width: 100%;
     border: none;
@@ -219,16 +212,18 @@ form legend {
 }
 
 form input, textarea, select {
-    min-width: 30%;
-    margin: 1rem 0.5rem;
-    color: var(--text-secondary-color);
-    background-color: var(--bg-secondary-color);
+    min-width: 100%;
     padding: 0.3rem;
+    background-color: var(--bg-secondary-color);
+    color: var(--text-secondary-color);
+}
+
+form label {
+    margin: 1rem 0.5rem;
+    background-color: var(--bg-primary-color);
 }
 
 form textarea {
-    margin: 1rem 0rem;
-    width: 100%;
     min-height: 50rem;
 }
 
@@ -278,7 +273,7 @@ nav {
 }
 
 nav a {
-    margin: 1.5rem;
+    margin: 0.5rem;
     text-decoration: none;
     color: var(--text-secondary-color);
 }
