@@ -52,17 +52,13 @@ footer {
     margin: auto;
 }
 
-
+section {
+    margin: 2rem;
+}
 
 h1, h2, h3, h4, h5, h6 {
     padding-bottom: 1rem;
     padding-top: 1rem;
-}
-
-@media (max-width: 1024px) {
-    h1, h2, h3, h4, h5, h6 {
-        text-align: center;
-    }
 }
 
 h1 {
@@ -162,36 +158,6 @@ svg {
     margin: auto;
 }
 
-@media (min-width: 640px) {
-    .container {
-        max-width: 640px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1024px;
-    }
-}
-
-@media (min-width: 1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-
-@media (min-width: 1536px) {
-    .container {
-        max-width: 1536px;
-    }
-}
-
 svg {
     fill: var(--link-primary-color);
     width: 250px;
@@ -254,7 +220,6 @@ input[type=button] {
 
 header {
     margin: auto;
-    text-align: center;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-color: var(--border-primary-color);
@@ -277,6 +242,7 @@ nav {
 
 nav a {
     margin: 0.5rem;
+    vertical-align: middle;
     text-decoration: none;
     color: var(--text-secondary-color);
 }
@@ -287,4 +253,24 @@ nav a:hover {
 
 .active {
     color: var(--active-primary-color);
+}
+
+h1.blog-title {
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+/* Mobile */
+
+@media (max-width: 1024px) {
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
+    header {
+        text-align: center;
+    }
+    section {
+        margin: 1rem;
+    }
 }
