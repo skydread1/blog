@@ -105,7 +105,9 @@ pre {
     font-size: 1rem;
     margin: 1rem 0rem;
     padding: 1rem;
-    background-color: var(--bg-secondary-color);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--border-primary-color);
 }
 
 code {
@@ -261,6 +263,20 @@ h1.blog-title {
     font-size: 1.5rem;
 }
 
+/* Post form */
+.markdownx {
+    display: flex;
+    justify-content: space-between;
+}
+
+.markdownx>* {
+    flex-basis: 49%;
+}
+
+.markdownx textarea {
+    min-width: 0;
+}
+
 /* Mobile */
 
 @media (max-width: 1024px) {
@@ -272,6 +288,9 @@ h1.blog-title {
     }
     section {
         margin: 1rem;
+    }
+    .markdownx {
+        display: block;
     }
 }
 
