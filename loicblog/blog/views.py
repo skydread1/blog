@@ -1,10 +1,33 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Category
 from .forms import CreatePostForm, EditPostForm
 from django.urls import reverse_lazy
 
 ## Class-Based Views (CBVs)
+
+### Category
+
+class CategoryView(DetailView):
+    model = Category
+    template_name = 'category.html'
+    context_object_name = 'category'
+    slug_field = 'name'
+    slug_url_kwarg = 'cat_name'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = self.object
+        posts = Post.objects.filter(category=category)
+        context['category_posts'] = posts
+        return context
+
+class CreateCategoryView(CreateView):
+    model = Category
+    fields = '__all__'
+    template_name = 'create_category.html'
+
+### Post
 
 class HomeView(ListView):
     model = Post

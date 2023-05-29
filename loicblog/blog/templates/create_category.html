@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Loic's Blog: New category
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Create Category</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <button>Create</button> 
+    {{ form.as_p }}
+</form>
+{{ form.media }}
+{% else %}
+<h3>You need to login to create a category</h3>
+{% endif %}
+
+{% endblock %}
