@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Loic's Blog - Edit: {{ post.title}} 
+    Loic's Blog - Edit: {{ post.title}}
 {% endblock %}
 
 {% block content %}
@@ -12,8 +12,9 @@
 
 <form method="POST">
     {% csrf_token %}
-    <button>Edit</button> 
+    <button>Edit</button>
     {{ form.as_p }}
+    {{ form.media }}      
 </form>
 {% else %}
 <h3>You need to login to edit a post</h3>

@@ -53,5 +53,31 @@ So `loicblog` is the project and `blog` is one app inside the project.
 python manage.py startapp blog
 ```
 
-Then we need to add the `blog` app to the INSTALLED_APPS array in the project `loicblog/settings.py`.
-We also need to add `path('', include('blog.urls'))` to the `urlpatterns` in `loic/blog/urls.py`.
+- Add the `blog` app to the INSTALLED_APPS array in the project `loicblog/settings.py`.
+- Add `path('', include('blog.urls'))` to the `urlpatterns` in `loic/blog/urls.py`.
+
+## Markdown support
+
+### django-markdownx
+
+```bash
+pip install markdown django-markdownx
+```
+- Then we need to add the `markdownx` app to the INSTALLED_APPS array in the project `loicblog/settings.py`.
+- Add the path to urls.py: `path('markdownx/', include('markdownx.urls'))`.
+- Collect MarkdownX assets to your STATIC_ROOT:
+```bash
+python manage.py collectstatic
+```
+
+### code block and code block highlighting
+
+By default the code block `pre` are not supported and there is no syntax highlighting.
+
+Adding `MARKDOWNX_MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']` to the settings enable them.
+
+`codehilite` required the `pygments` package:
+
+```bash
+pip install pygments
+```
