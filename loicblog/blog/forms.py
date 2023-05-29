@@ -1,5 +1,6 @@
 from django import forms
 from .models import Post
+from markdownx.fields import MarkdownxFormField
 
 class CreatePostForm(forms.ModelForm):
     class Meta:
@@ -9,7 +10,7 @@ class CreatePostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'placeholder': 'My post title'}),
             'author': forms.Select(),
             'date': forms.DateInput(attrs={'type': 'date'}),
-            'body': forms.Textarea(attrs={'placeholder': 'My post content'}),
+            'body': MarkdownxFormField(),
         }
 
 class EditPostForm(forms.ModelForm):
@@ -19,5 +20,5 @@ class EditPostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(),
             'date': forms.DateInput(attrs={'type': 'date'}),
-            'body': forms.Textarea(),
+            'body': MarkdownxFormField(),
         }

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "members",
+    "markdownx",
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Login/Logout redirects
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Static root for markdownx
+STATIC_ROOT = "/Users/loicblanchard/workspaces/blog-statics"
+
+# Markdown extensions to handle code blocks and code block highlighting
+MARKDOWNX_MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
