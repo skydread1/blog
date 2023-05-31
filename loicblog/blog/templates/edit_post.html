@@ -7,7 +7,7 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and post.author.id == user.id  %}
 <h1>Edit Post: {{ post.title}}</h1>
 
 <form method="POST">
@@ -17,7 +17,7 @@
     {{ form.media }}      
 </form>
 {% else %}
-<h3>You need to login to edit a post</h3>
+<h3>You need to login and be the author to edit this post</h3>
 {% endif %}
 
 {% endblock %}
