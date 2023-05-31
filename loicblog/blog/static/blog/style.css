@@ -266,6 +266,10 @@ nav a:hover {
     font-size: 1.5rem;
 }
 
+.logged-user {
+    color: var(--active-primary-color);
+}
+
 /* Category dropdown */
 
 .dropdown {
@@ -335,10 +339,6 @@ nav a:hover {
     }
     
     nav.top-bar>div {
-        flex-basis: 40%;
-    }
-    
-    nav.top-bar .blog-title{
         flex-basis: 100%;
     }
 }
