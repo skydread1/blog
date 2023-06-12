@@ -20,7 +20,7 @@ class CreatePostForm(forms.ModelForm):
 class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'date', 'category', 'body']
+        fields = ['title', 'author', 'date', 'category', 'body']
         widgets = {
             'title': forms.TextInput(),
             'date': forms.DateInput(attrs={'type': 'date'}),

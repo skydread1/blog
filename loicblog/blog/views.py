@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import User
 from .models import Post, Category
 from .forms import CreatePostForm, EditPostForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 ## Class-Based Views (CBVs)
 
@@ -43,12 +45,26 @@ class CreatePostView(CreateView):
     form_class = CreatePostForm
     template_name = 'create_post.html'
 
-class EditPostView(UpdateView):
+class EditPostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     form_class = EditPostForm
     template_name = 'edit_post.html'
 
-class DeletePostView(DeleteView):
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['author'].disabled = True
+        form.fields['author'].queryset = User.objects.filter(username=self.request.user.username)
+        return form
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
+class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author

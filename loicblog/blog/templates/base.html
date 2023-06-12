@@ -40,6 +40,11 @@
           Categories <i class="fa fa-caret-down"></i>
         </button>
       </div>
+      {% if user.is_authenticated %}
+      <div class="logged-user">
+          <p> Logged in: {{ user.first_name }} </p>
+      </div>
+      {% endif %}
     </nav>
     <div class="dropdown-content" id="cat-dropdown">
       {% get_categories as categories %}

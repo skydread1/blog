@@ -11,7 +11,7 @@
         - {{ post.author.first_name }} {{ post.author.last_name }}
         <small>
             - {{ post.date }}
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and post.author.id == user.id %}
             - <a href="{% url 'edit_post' post.pk %}">Edit</a>
             - <a href="{% url 'delete_post' post.pk %}">Delete</a>
             {% endif %}
