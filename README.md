@@ -161,3 +161,11 @@ python manage.py migrate
 # Create superuser
 python manage.py createsuperuser
 ```
+
+## AWS Beanstalk
+
+First, we need to be sure all the packages are present in the requirements.txt:
+
+```bash
+pip freeze > requirements.txt
+```
