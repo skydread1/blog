@@ -53,7 +53,7 @@ So `loicblog` is the project and `blog` is one app inside the project.
 python manage.py startapp blog
 ```
 
-- Add the `blog` app to the INSTALLED_APPS array in the project `loicblog/settings.py`.
+- Add the `blog` app to the INSTALLED_APPS array in the project `loicblog/common.py`.
 - Add `path('', include('blog.urls'))` to the `urlpatterns` in `loic/blog/urls.py`.
 
 ## Markdown support
@@ -63,7 +63,7 @@ python manage.py startapp blog
 ```bash
 pip install markdown django-markdownx
 ```
-- Then we need to add the `markdownx` app to the INSTALLED_APPS array in the project `loicblog/settings.py`.
+- Then we need to add the `markdownx` app to the INSTALLED_APPS array in the project `loicblog/common.py`.
 - Add the path to urls.py: `path('markdownx/', include('markdownx.urls'))`.
 - Collect MarkdownX assets to your STATIC_ROOT:
 ```bash
@@ -80,4 +80,92 @@ Adding `MARKDOWNX_MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']` to the se
 
 ```bash
 pip install pygments
+```
+
+## Env variables
+
+```bash
+## install
+pip install django-environ
+```
+
+Add `import environ` in `common.py`.
+
+To define dev and prod settings, I used this [method](https://thinkster.io/tutorials/configuring-django-settings-for-production) that separate configs in 3 files:
+- common
+- dev
+- prod
+
+The env variables for dev or prod to be set are shown in `.end.dist`
+
+## AWS S3
+
+### django-storages
+
+Django-storages is a Python library that provides a storage backends system for Django web applications.
+
+```bash
+pip install -U django-storages
+```
+
+For unknown reasons, the env variable `DJANGO_SETTINGS_MODULE` is not picked up by django while all the other env variables work fine.
+So in order to use the `loicblog.setting.prod`, we need to manually change it in all the os.environ.setdefault like so:
+
+```python
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "loicblog.settings.prod") # instead of "loicblog.settings.dev"
+```
+
+### boto3
+
+official AWS SDK (Software Development Kit) for Python. Boto3 allows Python developers to interact with various Amazon Web Services (AWS) resources and services programmatically.
+
+```bash
+pip install -U boto3
+```
+
+### push static files to s3
+
+First, make sure we use the prod env variable in `.env`:
+```bash
+DJANGO_SETTINGS_MODULE=loicblog.settings.dev
+```
+
+Then in `loicblog`:
+
+```bash
+python manage.py collectstatic
+```
+
+## AWS RDS Postgres
+
+First, create AWS RDS postgres db and Security Group.
+
+For the SG, it needs to have inbound rules for postgres.
+
+### psycopg2-binary
+
+The package `psycopg2-binary` is a PostgreSQL adapter for Python. It allows Python programs to communicate with a PostgreSQL database.
+
+```bash
+pip install psycopg2-binary
+```
+
+All the DB configs can be added in `.env`.
+
+In order to migrate and setup the superuser properly, we need to run a few commands:
+
+```bash
+# apply migrations.
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+```
+
+## AWS Beanstalk
+
+First, we need to be sure all the packages are present in the requirements.txt:
+
+```bash
+pip freeze > requirements.txt
 ```
