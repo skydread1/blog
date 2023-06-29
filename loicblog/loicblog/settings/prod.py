@@ -2,7 +2,9 @@ from loicblog.settings.common import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["blog.loicblanchard.me"] # add localhost for local testing
+ALLOWED_HOSTS = ["blog.loicblanchard.me", "*"] # add localhost for local testing
+
+CSRF_TRUSTED_ORIGINS = ['https://blog.loicblanchard.me']
 
 # Amazon S3 configuration
 AWS_ACCESS_KEY_ID = env.str('AWS_ACCESS_KEY_ID')

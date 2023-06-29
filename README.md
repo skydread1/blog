@@ -164,8 +164,58 @@ python manage.py createsuperuser
 
 ## AWS Beanstalk
 
+[EB guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html) on deploying django app to EB.
+
 First, we need to be sure all the packages are present in the requirements.txt:
 
 ```bash
 pip freeze > requirements.txt
 ```
+
+### gunicorn
+
+Gunicorn (Green Unicorn) is a commonly used HTTP server for deploying Python web applications, including Django apps. When deploying a Django app on AWS Elastic Beanstalk, Gunicorn is often used as the application server to handle incoming HTTP requests and serve the Django application.
+
+```bash
+pip install gunicorn
+```
+
+### EB config
+
+Can be found in `.ebextensions/django.config`
+
+### AWS CLI EB
+
+```bash
+## first leave python virtual env
+deactivate
+
+## then proceed with eb cli
+brew install awsebcli
+
+## init eb
+eb init
+
+## BE SURE TO HAVE DJANGO_SETTINGS_MODULE=loicblog.settings.prod
+
+## Create all resources
+eb create
+
+## (re)deploy
+eb deploy
+```
+
+## Domain name
+
+Fo HTTPS, we can create SSL certificate using AWS Certificate Manager for the subdomain `blog.loicblanchard.me`.
+
+Note: ACM provides the CNAME record name and value. For the name, it will provide something like this:
+`_SOME-NUMBERS-HERE.blog.loicblanchard.me.` but we need to only enter `_SOME-NUMBERS-HERE.blog` in GoDaddy record name for it to work.
+
+Then in GoDaddy, to resolve `blog.loicblanchard.me` to the Application Load Balancer domain name (created when we created the EB), we need to add another CNAME record for the `blog` subdomain.
+
+Then, we need to add rules to the ALB to redirect http to https using the ACM certificate.
+
+Finally, we need to be sure the Security Group of the ALB allows inbound HTTPS.
+
+Update the `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` with the subdomain and redeploy the EB.
