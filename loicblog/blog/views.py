@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
 from .models import Post, Category
 from .forms import CreatePostForm, EditPostForm
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 ## Class-Based Views (CBVs)
 
@@ -40,10 +41,15 @@ class PostDetailsView(DetailView):
     model = Post
     template_name = 'post_details.html'
 
-class CreatePostView(CreateView):
+class CreatePostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = CreatePostForm
     template_name = 'create_post.html'
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['current_user'] = self.request.user
+        return kwargs
 
 class EditPostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
