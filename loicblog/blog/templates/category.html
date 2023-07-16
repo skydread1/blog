@@ -7,24 +7,11 @@
 
 {% block content %}
 
-<h1>{{ category.name }}</h1>
+<h1>Posts about {{ category.name }}</h1>
 
 {% for post in category_posts %}
-    <li><a href="{% url 'post_details' post.pk %}">{{ post.title}}</a>
-        - {{ post.author.first_name }} {{ post.author.last_name }}
-        <small>
-            - {{ post.date }}
-            {% if user.is_authenticated and post.author.id == user.id  %}
-            - <a href="{% url 'edit_post' post.pk %}">Edit</a>
-            - <a href="{% url 'delete_post' post.pk %}">Delete</a>
-            {% endif %}
-        </small>
-    </li>
+    {% include 'post/post_short.html' %}
 {% endfor %}
 <br />
-<br />
-<button>
-    <a href="{% url 'home' %}">Back</a>
-</button>
 
 {% endblock %}

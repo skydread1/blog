@@ -127,7 +127,7 @@ pip install -U boto3
 
 First, make sure we use the prod env variable in `.env`:
 ```bash
-DJANGO_SETTINGS_MODULE=loicblog.settings.dev
+DJANGO_SETTINGS_MODULE=loicblog.settings.prod
 ```
 
 Then in `loicblog`:

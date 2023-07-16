@@ -5,19 +5,20 @@
     --link-primary-color: #129bd8;
     --pulse-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
-    --bg-primary-color: #F6F4F3;
-    --bg-secondary-color: #fff0d2;
+    --bg-primary-color: #f2fdff;
+    --bg-secondary-color: #dfefff;
 
     --text-primary-color: #0A0908;
-    --text-secondary-color: #22333B;
+    --text-secondary-color: #001f63;
+    --text-tertiary-color: #626262;
 
     --button-primary-color: white;
 
     --error-primary-color: #991b1b;
 
-    --border-primary-color: #5E503F;
+    --border-primary-color: #626262;
 
-    --active-primary-color: #5E503F;
+    --active-primary-color: #fffdbd;
 }
 
 /* General */
@@ -52,40 +53,71 @@ footer {
     margin: auto;
 }
 
-section {
-    margin: 2rem;
+/* container */
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding: 0.5rem 0rem;
 }
 
 h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--text-primary-color);
+    text-align: center;
     text-transform: uppercase;
+    border-bottom-style: groove;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border-primary-color);
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--text-secondary-color);
     text-transform: uppercase;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--text-primary-color);
 }
 
 h4 {
-    font-size: 1.4rem;
-    color: var(--text-secondary-color);
-}
-
-h5 {
     font-size: 1.3rem;
-    color: var(--text-primary-color);
+    color: var(--text-secondary-color);
 }
 
 h5 {
@@ -101,8 +133,7 @@ p {
 
 pre {
     overflow-x: scroll;
-    white-space: pre-wrap;
-    font-size: 1rem;
+    white-space: pre;
     margin: 1rem 0rem;
     padding: 1rem;
     border-style: solid;
@@ -141,17 +172,14 @@ li a {
 button {
     cursor: pointer;
     padding: 0.5rem;
-    background-color: var(--bg-secondary-color);
+    background-color: var(--bg-primary-color);
     border-radius: 0.25rem;
     border-width: 2px;
     border-color: var(--text-primary-color);
 }
 
-button a {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    color: var(--text-primary-color);
+button:hover {
+    background-color: var(--active-primary-color);
 }
 
 img,
@@ -170,6 +198,10 @@ svg:hover {
 }
 
 /* Form */
+
+form {
+    padding-top: 0.5rem;
+}
 
 form fieldset {
     width: 100%;
@@ -198,6 +230,17 @@ form textarea {
     min-height: 50rem;
 }
 
+button.cancel,
+button.delete {
+    background-color: #ffc7c7;
+    width: 10rem;
+}
+
+button.confirm {
+    background-color: greenyellow;
+    width: 10rem;
+}
+
 input[type=button] {
     padding: 0.5rem;
     color: var(--link-primary-color);
@@ -222,6 +265,15 @@ input[type=button] {
 
 header {
     margin: auto;
+    background-color: var(--text-secondary-color);
+    color: var(--bg-primary-color);
+    border-bottom-style: groove;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border-primary-color);
+}
+
+header a {
+    color: var(--bg-secondary-color);
 }
 
 .pointer {
@@ -238,18 +290,12 @@ nav.top-bar {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: var(--bg-secondary-color);
-    color: var(--text-primary-color);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-color: var(--border-primary-color);
 }
 
 nav a {
     margin: 0.5rem;
     vertical-align: middle;
     text-decoration: none;
-    color: var(--text-secondary-color);
 }
 
 nav a:hover {
@@ -262,8 +308,10 @@ nav a:hover {
 
 .blog-title h1{
     padding: 0;
+    color: var(--bg-primary-color);
     text-transform: uppercase;
     font-size: 1.5rem;
+    border: none;
 }
 
 .logged-user {
@@ -280,23 +328,22 @@ nav a:hover {
     border: none;
     font-family: inherit;
     font-size: inherit;
-    color: var(--text-secondary-color);
 }
   
 .dropdown-content {
     display: none;
-    background-color: var(--bg-secondary-color);
     min-width: 10%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-color: var(--border-primary-color);
+    border-top-style: solid;
+    border-width: thin;
+    border-color: var(--active-primary-color);
 }
   
 .dropdown-content a {
     padding: 0.5rem 1rem;
     text-decoration: none;
+    color: var(--active-primary-color);
 }
 
 .show {
@@ -311,10 +358,79 @@ nav a:hover {
 
 .markdownx>* {
     flex-basis: 49%;
+    overflow-x: auto;
 }
 
 .markdownx textarea {
     min-width: 0;
+}
+
+.post-short {
+    border-bottom-style: groove;
+    border-width: 1px;
+    border-color: var(--border-primary-color);
+}
+
+.post-short {
+    border-left-style: groove;
+    border-right-style: groove;
+    border-left-color: var(--bg-primary-color);
+    border-right-color: var(--bg-primary-color);
+}
+
+.post-short, .post-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-short:hover {
+    background-color: var(--bg-secondary-color);
+    border-color: var(--border-primary-color);
+}
+
+.post-short .post-header {
+    flex-grow: 1;
+}
+
+.post-short a {
+    padding: 0.5rem;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-short>a:hover {
+    background-color: var(--active-primary-color);
+}
+
+.post-short h2 {
+    padding: 0.3rem 0rem;
+    font-size: 1.3rem;
+    text-transform: none;
+}
+
+.post-info {
+    color: var(--text-tertiary-color);
+}
+
+.post-short .post-info {
+    padding-top: 0rem;
+}
+
+.post-short .post-actions {
+    padding: 0.5rem;
+}
+
+.post-details .post-info,
+.post-details .post-actions {
+    padding: 0.5rem;
+}
+
+.post-actions a {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0rem;
 }
 
 /* Mobile */
@@ -322,6 +438,10 @@ nav a:hover {
 @media (max-width: 1024px) {
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
+    }
+
+    .container {
+        padding: 0.5rem;
     }
     header {
         text-align: center;
@@ -337,9 +457,10 @@ nav a:hover {
         align-items: center;
         justify-content: center;
     }
-    
-    nav.top-bar>div {
-        flex-basis: 100%;
+
+    .post-short, .post-details {
+        display: block;
+        text-align: center;
     }
 }
 
