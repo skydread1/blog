@@ -12,7 +12,7 @@
 
 <form method="POST">
     {% csrf_token %}
-    <button>Create</button> 
+    <button class="confirm">Create</button>
     {{ form.as_p }}
 </form>
 {{ form.media }}

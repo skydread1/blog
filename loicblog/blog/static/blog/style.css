@@ -230,13 +230,9 @@ form textarea {
     min-height: 50rem;
 }
 
-button.cancel {
+button.cancel,
+button.delete {
     background-color: #ffc7c7;
-    width: 10rem;
-}
-
-button.back {
-    background-color: inherit;
     width: 10rem;
 }
 
