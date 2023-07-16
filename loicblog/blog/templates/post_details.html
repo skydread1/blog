@@ -8,21 +8,28 @@
 {% block content %}
 
 <h1>{{ post.title }}</h1>
-<small>
-    By: {{ post.author.first_name }} {{ post.author.last_name }}
-    - {{ post.date }}
-    {% if user.is_authenticated and post.author.id == user.id %}
-    - <a href="{% url 'edit_post' post.pk %}">Edit</a>
-    - <a href="{% url 'delete_post' post.pk %}">Delete</a>
-    {% endif %}
-</small>
-<hr>
+<div class="post-details">
+    <div class="post-info">
+        By {{ post.author.first_name }} {{ post.author.last_name }}
+        on {{ post.date }}
+        in category {{ post.category }}
+    </div>
+    <div class="post-actions">
+        <a href="{% url 'home' %}">
+            <button>Back</button>
+        </a>
+        {% if user.is_authenticated and post.author.id == user.id %}
+            <a href="{% url 'edit_post' post.pk %}">
+                <button>Edit</button>
+            </a>
+            <a href="{% url 'delete_post' post.pk %}">
+                <button>Delete</button>
+            </a>
+        {% endif %}
+    </div>
+</div>
 <br />
 {{ post.formatted_markdown|safe }}
 <br />
-<br />
-<button>
-    <a href="{% url 'home' %}">Back</a>
-</button>
 
 {% endblock %}

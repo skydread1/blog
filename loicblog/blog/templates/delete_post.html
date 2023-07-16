@@ -10,11 +10,15 @@
 {% if user.is_authenticated and post.author.id == user.id  %}
 <h1>Delete Post: {{ post.title}}</h1>
 
+<a href="{% url 'home' %}">
+    <button class="cancel">Cancel</button>
+</a>
+
 <form method="POST">
     {% csrf_token %}
     <strong>Are you sure you want to delete this post?</strong>
     <br /><br />
-    <button>Delete</button>
+    <button class="cancel">Delete Post</button>
 </form>
 {% else %}
 <h3>You need to login and be the author to delete this post</h3>

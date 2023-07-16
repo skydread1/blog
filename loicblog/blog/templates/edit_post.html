@@ -10,11 +10,15 @@
 {% if user.is_authenticated and post.author.id == user.id  %}
 <h1>Edit Post: {{ post.title}}</h1>
 
+<a href="{% url 'home' %}">
+    <button class="cancel">Cancel</button>
+</a>
+
 <form method="POST">
     {% csrf_token %}
-    <button>Edit</button>
+    <button class="confirm">Edit Post</button>
     {{ form.as_p }}
-    {{ form.media }}      
+    {{ form.media }}   
 </form>
 {% else %}
 <h3>You need to login and be the author to edit this post</h3>

@@ -1,0 +1,22 @@
+<div class="post-short">
+    <div class="post-header">
+        <a href="{% url 'post_details' post.pk %}">
+            <h2>{{ post.title}}</h2>
+            <div class="post-info">
+                By {{ post.author.first_name }} {{ post.author.last_name }}
+                on {{ post.date }}
+                in category {{ post.category }}
+            </div>
+        </a>
+    </div>  
+    {% if user.is_authenticated and post.author.id == user.id %}
+        <div class="post-actions">
+                <a href="{% url 'edit_post' post.pk %}">
+                    <button>Edit</button>
+                </a>
+                <a href="{% url 'delete_post' post.pk %}">
+                    <button>Delete</button>
+                </a>
+        </div>
+    {% endif %}
+</div>
