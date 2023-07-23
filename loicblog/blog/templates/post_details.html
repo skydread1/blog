@@ -28,8 +28,8 @@
         {% endif %}
     </div>
 </div>
-<br />
-{{ post.formatted_markdown|safe }}
-<br />
+<div class="post-content">
+    {{ post.formatted_markdown|safe }}
+<div />
 
 {% endblock %}

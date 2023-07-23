@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "blog",
     "members",
     "markdownx",
+    "fontawesomefree",
 ]
 
 MIDDLEWARE = [
