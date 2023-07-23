@@ -226,7 +226,7 @@ Update the `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` with the subdomain and red
 pip install fontawesomefree
 ```
 
-This requires to add a CORS policy on the S#=3 bucket like so:
+This requires to add a CORS policy on the S3 bucket like so:
 
 ```json
 [

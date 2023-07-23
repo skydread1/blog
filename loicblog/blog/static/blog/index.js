@@ -23,7 +23,6 @@ const moonIcon = document.getElementById('moon-icon');
 const sunIcon = document.getElementById('sun-icon');
 
 // Function to toggle the mode and icons
-
 function setMode(mode) {
   const other_mode = (mode == 'light') ? 'dark' : 'light'
   htmlTag.classList.remove(other_mode);
