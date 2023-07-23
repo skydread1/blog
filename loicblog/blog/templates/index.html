@@ -14,7 +14,9 @@
   </title>
   <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   <link rel="stylesheet" href="{% static 'blog/style.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -23,7 +25,7 @@
       <nav class="top-bar">
         <div class="blog-title">
           <a href="{% url 'home' %}">
-            <h1>Loic's Blog</h1>
+            <h2.blog-title>Loic's Blog</h2>
           </a>
         </div>
         <div>
@@ -46,6 +48,10 @@
             <p> Logged in: {{ user.first_name }} </p>
         </div>
         {% endif %}
+        <button id="dark-light-toggle">
+          <i class="fa fa-moon" id="moon-icon"></i>
+          <i class="fa-solid fa-sun" id="sun-icon"></i>
+        </button>
       </nav>
       <div class="dropdown-content" id="cat-dropdown">
         {% get_categories as categories %}
@@ -53,7 +59,7 @@
         <a href="{% url 'category' category.name %}">{{ category.name }}</a>
         {% endfor %}
       </div>
-    </div>  
+    </div>
   </header>
   <section class="container">
     {% block content %}

@@ -219,3 +219,29 @@ Then, we need to add rules to the ALB to redirect http to https using the ACM ce
 Finally, we need to be sure the Security Group of the ALB allows inbound HTTPS.
 
 Update the `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` with the subdomain and redeploy the EB.
+
+## Font awesome free
+
+```
+pip install fontawesomefree
+```
+
+This requires to add a CORS policy on the S3 bucket like so:
+
+```json
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "HEAD"
+        ],
+        "AllowedOrigins": [
+            "https://blog.loicblanchard.me"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
