@@ -9,7 +9,7 @@
     --bg-primary-color: #202020;
     --bg-secondary-color: #303030;
 
-    --text-primary-color: #e8edb9;
+    --text-primary-color: #bcf2c5;
     --text-secondary-color: #e2e2e2;
 
     --button-primary-color: #202020;
@@ -28,7 +28,7 @@
     --bg-primary-color: #f2fdff;
     --bg-secondary-color: #dfefff;
 
-    --text-primary-color: #1c869b;
+    --text-primary-color: #236c0c;
     --text-secondary-color: #1f1a18;
 
     --button-primary-color: white;
@@ -114,7 +114,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    padding: 1rem;
     color: var(--text-primary-color);
     text-align: center;
     text-transform: uppercase;
@@ -192,8 +193,8 @@ li a {
 button {
     cursor: pointer;
     padding: 0.5rem;
-    background-color: var(--bg-primary-color);
-    color: var(--text-secondary-color);
+    background-color: inherit;
+    color: inherit;
     border-radius: 0.25rem;
     border-width: 2px;
     border-color: var(--text-secondary-color);
@@ -303,6 +304,10 @@ header .blog-title a {
 
 header a {
     color: var(--bg-secondary-color);
+}
+
+header img {
+    width: 2rem;
 }
 
 .pointer {
@@ -439,8 +444,7 @@ nav a:hover {
 }
 
 .post-short a {
-    padding: 0.5rem;
-    padding-top: 1.5rem;
+    padding: 1rem;
     display: block;
     color: inherit;
     text-decoration: none;
@@ -480,6 +484,28 @@ nav a:hover {
     padding: 0rem;
 }
 
+/* Footer */
+
+footer {
+    padding: 2rem;
+    margin-top: -1px;
+    border-top-style: groove;
+    border-top-width: 1px;
+    border-top-color: var(--border-primary-color);
+    text-align: center;
+}
+
+footer .contact-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .contact-icons img {
+    margin: 1rem;
+    width: 5rem;
+}
+
 /* Mobile */
 
 @media (max-width: 1024px) {
@@ -490,15 +516,19 @@ nav a:hover {
     .container {
         width: 100%;
     }
+
     header {
         text-align: center;
     }
+
     section {
         margin: 1rem;
     }
+
     .markdownx {
         display: block;
     }
+
     nav.top-bar {
         flex-wrap: wrap;
         align-items: center;

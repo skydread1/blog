@@ -25,15 +25,21 @@ const sunIcon = document.getElementById('sun-icon');
 // Function to toggle the mode and icons
 function setMode(mode) {
   const other_mode = (mode == 'light') ? 'dark' : 'light'
+  const github_logo = document.getElementById('github-logo-light');
+  const github_logo_dark = document.getElementById('github-logo-dark');
   htmlTag.classList.remove(other_mode);
   htmlTag.classList.add(mode);
   if (mode == 'light') {
     moonIcon.style.display = 'inline-block';
     sunIcon.style.display = 'none';
+    github_logo.style.display = 'inline-block';
+    github_logo_dark.style.display = 'none';
   }
   else {
     moonIcon.style.display = 'none';
     sunIcon.style.display = 'inline-block';
+    github_logo.style.display = 'none';
+    github_logo_dark.style.display = 'inline-block';
   }
   localStorage.setItem('modePreference', mode);
 }

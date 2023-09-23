@@ -23,6 +23,11 @@
   <header>
     <div class="container">
       <nav class="top-bar">
+        <div>
+          <a href="{% url 'home' %}">
+            <img alt="Loic Blog Logo" src="{% static 'favicon.ico' %}">
+          </a>
+        </div>
         <div class="blog-title">
           <a href="{% url 'home' %}">
             <h2.blog-title>Loic's Blog</h2>
@@ -33,9 +38,6 @@
           <a href="{% url 'create_post' %}">Create Post</a>
           <a href="{% url 'create_category' %}">Create Category</a>
           <a href="{% url 'logout' %}">Logout</a>
-          {% else %}
-          <a href="{% url 'register' %}">Register</a>
-          <a href="{% url 'login' %}">Login</a>
           {% endif %}
         </div>
         <div class="dropdown">
@@ -65,6 +67,31 @@
     {% block content %}
     {% endblock %}
   </section>
+  <footer id="footer-contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-icons">
+        <div>
+          <a id="github-logo-light" href="https://github.com/skydread1" rel="noreferrer" target="_blank">
+            <img alt="Github Logo" src="{% static 'blog/assets/octocat.png' %}" title="github">
+          </a>
+          <a id="github-logo-dark" href="https://github.com/skydread1" rel="noreferrer" target="_blank">
+            <img alt="Github Logo" src="{% static 'blog/assets/octocat-dark.png' %}" title="github">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/blanchardloic" rel="noreferrer" target="_blank">
+            <img alt="Linkedin Logo" src="{% static 'blog/assets/linkedin-logo.png' %}">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.loicblanchard.me" rel="noreferrer" target="_blank">
+            <img alt="Loic Portfolio Logo" src="{% static 'blog/assets/loic-logo.png' %}">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="{% static 'blog/index.js' %}"></script>
 </body>
 
