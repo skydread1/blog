@@ -33,4 +33,3 @@ class Post(models.Model):
     @property
     def formatted_markdown(self):
         return markdownify(self.body)
-

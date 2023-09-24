@@ -1,0 +1,17 @@
+<form method="POST">
+    {% csrf_token %}
+    <input type="text"
+        name="search"
+        placeholder="Search posts"
+        hx-post="{% url 'search_post' %}"
+        hx-target="#results"
+        hx-trigger="keyup delay delay:0.5s">
+</form>
+
+<div id="results">
+    <div class="posts-list">
+        {% for post in posts %}
+            {% include 'post/post_short.html' %}
+        {% endfor %}
+    </div>
+</div>

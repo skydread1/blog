@@ -7,11 +7,10 @@
 
 {% block content %}
 
-<h1>Posts about {{ category.name }}</h1>
+<h1 class="post-title">Posts about {{ category.name }}</h1>
 
 {% for post in category_posts %}
     {% include 'post/post_short.html' %}
 {% endfor %}
-<br />
 
 {% endblock %}

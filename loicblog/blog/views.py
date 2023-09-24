@@ -37,6 +37,11 @@ class HomeView(ListView):
     template_name = 'home.html'
     ordering = ['-date']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = context['object_list']
+        return context
+
 class PostDetailsView(DetailView):
     model = Post
     template_name = 'post_details.html'
@@ -74,3 +79,11 @@ class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
+## Class-Based Views (FBVs) - for htmx
+
+def search_post(request):
+    search_text = request.POST.get('search')
+    results = Post.objects.filter(title__icontains=search_text).order_by('-date')
+    context = {"results": results}
+    return render(request, 'partials/search-results.html', context)

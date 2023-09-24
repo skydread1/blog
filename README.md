@@ -245,3 +245,9 @@ This requires to add a CORS policy on the S3 bucket like so:
     }
 ]
 ```
+
+## HTMX
+
+To download and setup htmx, follow the [installation instructions](https://django-htmx.readthedocs.io/en/latest/installation.html)
+
+- I downloaded [htmx.min.js](https://unpkg.com/browse/htmx.org@1.9.3/dist/htmx.min.js)

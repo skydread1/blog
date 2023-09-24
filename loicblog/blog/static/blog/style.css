@@ -9,10 +9,10 @@
     --bg-primary-color: #202020;
     --bg-secondary-color: #303030;
 
-    --text-primary-color: #bcf2c5;
+    --text-primary-color: #b3ff97;
     --text-secondary-color: #e2e2e2;
 
-    --button-primary-color: #202020;
+    --button-primary-color: white;
 
     --error-primary-color: #ff4d4d;
 
@@ -31,7 +31,7 @@
     --text-primary-color: #236c0c;
     --text-secondary-color: #1f1a18;
 
-    --button-primary-color: white;
+    --button-primary-color: black;
 
     --error-primary-color: #991b1b;
 
@@ -119,9 +119,6 @@ h1 {
     color: var(--text-primary-color);
     text-align: center;
     text-transform: uppercase;
-    border-bottom-style: groove;
-    border-bottom-width: 1px;
-    border-bottom-color: var(--border-primary-color);
 }
 
 h2 {
@@ -194,7 +191,7 @@ button {
     cursor: pointer;
     padding: 0.5rem;
     background-color: inherit;
-    color: inherit;
+    color: var(--button-primary-color);
     border-radius: 0.25rem;
     border-width: 2px;
     border-color: var(--text-secondary-color);
@@ -241,6 +238,9 @@ form input, textarea, select {
     padding: 0.3rem;
     background-color: var(--bg-secondary-color);
     color: var(--text-secondary-color);
+    border-style: groove;
+    border-width: 1px;
+    border-color: var(--border-primary-color);
 }
 
 form label {
@@ -252,15 +252,21 @@ form textarea {
     min-height: 50rem;
 }
 
+button.confirm,
 button.cancel,
 button.delete {
-    background-color: #ffc7c7;
+    border-style: groove;
+    border-width: 2px;
     width: 10rem;
 }
 
+button.cancel,
+button.delete {
+    border-color: red; 
+}
+
 button.confirm {
-    background-color: greenyellow;
-    width: 10rem;
+    border-color: green;
 }
 
 input[type=button] {
@@ -346,10 +352,6 @@ nav a:hover {
     color: var(--bg-secondary-color);
 }
 
-.active {
-    color: var(--active-primary-color);
-}
-
 .blog-title h1{
     padding: 0;
     color: var(--bg-primary-color);
@@ -369,8 +371,13 @@ nav a:hover {
 }
 
 .dropdown .dropbtn {
+    color: var(--bg-secondary-color);
     font-family: inherit;
     font-size: inherit;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: var(--text-primary-color);
 }
 
 .dropbtn i {
@@ -383,13 +390,13 @@ nav a:hover {
     z-index: 1;
     border-top-style: solid;
     border-top-width: thin;
-    border-top-color: var(--active-primary-color);
+    border-top-color: var(--border-primary-color);
 }
   
 .dropdown-content a {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: var(--active-primary-color);
+    color: var(--bg-primary-color);
 }
 
 .show {
@@ -482,6 +489,14 @@ nav a:hover {
     cursor: pointer;
     display: inline-block;
     padding: 0rem;
+}
+
+/* post details */
+
+h1.post-title {
+    border-bottom-style: groove;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border-primary-color);
 }
 
 /* Footer */

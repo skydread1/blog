@@ -5,10 +5,6 @@
 
 <h1>All Posts</h1>
 
-<div class="posts-list">
-{% for post in object_list %}
-    {% include 'post/post_short.html' %}
-{% endfor %}
-</div>
+{% include 'partials/search.html' %}
 
 {% endblock %}
