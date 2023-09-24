@@ -37,6 +37,11 @@ class HomeView(ListView):
     template_name = 'home.html'
     ordering = ['-date']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = context['object_list']
+        return context
+
 class PostDetailsView(DetailView):
     model = Post
     template_name = 'post_details.html'
