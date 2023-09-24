@@ -74,3 +74,11 @@ class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
+## Class-Based Views (FBVs) - for htmx
+
+def search_post(request):
+    search_text = request.POST.get('search')
+    results = Post.objects.filter(title__icontains=search_text)
+    context = {"results": results}
+    return render(request, 'partials/search-results.html', context)

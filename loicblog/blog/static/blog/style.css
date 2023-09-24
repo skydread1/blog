@@ -9,7 +9,7 @@
     --bg-primary-color: #202020;
     --bg-secondary-color: #303030;
 
-    --text-primary-color: #bcf2c5;
+    --text-primary-color: #b3ff97;
     --text-secondary-color: #e2e2e2;
 
     --button-primary-color: #202020;
@@ -119,9 +119,6 @@ h1 {
     color: var(--text-primary-color);
     text-align: center;
     text-transform: uppercase;
-    border-bottom-style: groove;
-    border-bottom-width: 1px;
-    border-bottom-color: var(--border-primary-color);
 }
 
 h2 {
@@ -241,6 +238,9 @@ form input, textarea, select {
     padding: 0.3rem;
     background-color: var(--bg-secondary-color);
     color: var(--text-secondary-color);
+    border-style: groove;
+    border-width: 1px;
+    border-color: var(--border-primary-color);
 }
 
 form label {
@@ -482,6 +482,14 @@ nav a:hover {
     cursor: pointer;
     display: inline-block;
     padding: 0rem;
+}
+
+/* post details */
+
+h1.post-title {
+    border-bottom-style: groove;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border-primary-color);
 }
 
 /* Footer */

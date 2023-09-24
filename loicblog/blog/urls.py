@@ -1,7 +1,7 @@
 from django.urls import path, include
 from .views import HomeView, PostDetailsView, CreatePostView, EditPostView, DeletePostView, CreateCategoryView, CategoryView
-from django.conf import settings
-from django.conf.urls.static import static
+from blog import views
+
 
 ## map URLs to class-based views
 urlpatterns = [
@@ -15,5 +15,11 @@ urlpatterns = [
     path('category/create', CreateCategoryView.as_view(), name='create_category'),
     path('category/<str:cat_name>', CategoryView.as_view(), name='category'),
 
-    path('markdownx/', include('markdownx.urls')),
+    path('markdownx/', include('markdownx.urls'))
 ]
+
+htmx_urlpatterns = [
+    path('htmx/search-post', views.search_post, name='search_post')
+]
+
+urlpatterns += htmx_urlpatterns

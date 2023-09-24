@@ -1,0 +1,11 @@
+{% if results %}
+
+    {% csrf_token %}
+    <div class="posts-list">
+        {% for post in results %}
+            {% include 'post/post_short.html' %}
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No search results</p>
+{% endif %}
