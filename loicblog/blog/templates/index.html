@@ -1,5 +1,4 @@
 {% load static %}
-{% load django_htmx %}
 {% load blog_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +18,6 @@
   <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
   <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
   <script src="{% static 'htmx.min.js' %}" defer></script>
-  {% django_htmx_script %}
 </head>
 
 <body>
