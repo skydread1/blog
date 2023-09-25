@@ -1,11 +1,11 @@
-<form method="POST">
+<form class="search-form" onsubmit="return false">
     {% csrf_token %}
     <input type="text"
         name="search"
-        placeholder="Search posts"
+        placeholder="Search Posts..."
         hx-post="{% url 'search_post' %}"
         hx-target="#results"
-        hx-trigger="keyup delay delay:0.5s">
+        hx-trigger="keyup delay:0.5s">
 </form>
 
 <div id="results">
