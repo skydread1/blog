@@ -464,7 +464,7 @@ nav a:hover {
 .post-short h2 {
     padding: 0.3rem 0rem;
     font-size: 1.3rem;
-    text-transform: none;
+    text-transform: uppercase;
     text-decoration: none;
 }
 
@@ -521,6 +521,17 @@ footer .contact-icons img {
     width: 5rem;
 }
 
+/* Search */
+
+form.search-form input{
+    font-size: 1rem;
+}
+
+.highlight-text {
+    color: var(--text-primary-color);
+    text-decoration: underline;
+}
+
 /* Mobile */
 
 @media (max-width: 1024px) {
@@ -552,6 +563,14 @@ footer .contact-icons img {
 
     .post-short, .post-details {
         display: block;
+        text-align: center;
+    }
+
+    form.search-form {
+        padding: 1rem;
+    }
+
+    form.search-form input {
         text-align: center;
     }
 }

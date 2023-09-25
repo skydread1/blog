@@ -85,5 +85,5 @@ class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def search_post(request):
     search_text = request.POST.get('search')
     results = Post.objects.filter(title__icontains=search_text).order_by('-date')
-    context = {"results": results}
+    context = {"results": results, "search_text": search_text}
     return render(request, 'partials/search-results.html', context)
