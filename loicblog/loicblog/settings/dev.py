@@ -11,4 +11,4 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = "/Users/loicblanchard/workspaces/blog-statics"
+STATIC_ROOT = os.path.join(BASE_DIR, 'dev-blog-statics')
