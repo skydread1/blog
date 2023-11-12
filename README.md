@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://www.flybot.sg/" target="_blank" rel="noopener noreferrer"><img src="loicblog/blog/static/favicon.ico" alt="flybot logo" width="25%"></a>
+    <a href="https://blog.loicblanchard.me/" target="_blank" rel="noopener noreferrer"><img src="loicblog/blog/static/favicon.ico" alt="Loic Blog logo" width="25%"></a>
 </div>
 
 <div align="center">
@@ -12,7 +12,9 @@
 
 ## 🐍 Rational
 
-This repository contains the source code of my tech blog made in `python` using the `Django` web framework. I used a bit of `HTMX` for dynamic UI especially of the search bar. The project has 2 apps: 
+This repository contains the source code of my tech blog made in `python` using the `Django` web framework. I incorporated HTMX to enhance the dynamic UI, particularly for the search bar.
+
+The project has 2 apps: 
 - `blog`: to manage posts and categories
 - `members`: to manage user authentication
 
@@ -31,7 +33,7 @@ Each post belongs to a `category`. A user can create category via the UI as well
 
 There is a dark/light mode and the website is responsive
 
-The code blocks also support `syntax highlighting`.
+Code blocks also feature syntax highlighting support.
 
 ## 🐍 Getting Started
 
@@ -40,7 +42,7 @@ If you want to try it out locally, you can clone the repo:
 git clone https://github.com/skydread1/blog.git
 ```
 
-Note: I developed the app on mac, so some command might differ if you use a different OS.
+**Note**: I developed the app on a Mac, so some commands might differ if you're using a different operating system.
 
 ### 1. Start python env
 
@@ -85,7 +87,7 @@ I used `django-markdownx` to be able to write the post in markdown and have them
 python manage.py collectstatic
 ```
 
-This will generate all the static files in `dev-blog-statics`.
+This will generate all static files in the `dev-blog-statics` directory.
 
 ### 5. Env variables
 
@@ -93,7 +95,7 @@ In **dev**, I use the default django `sqlite3` database and the static files are
 
 In **prod**, I use an AWS `RDS Postgres` database and the static files are located in an `AWS S3 bucket`.
 
-To define dev and prod settings, I used this [method](https://thinkster.io/tutorials/configuring-django-settings-for-production) that separate configs in 3 files:
+To define development and production settings, I followed this [method](https://thinkster.io/tutorials/configuring-django-settings-for-production), which separates configurations into three files:
 - common
 - dev
 - prod
@@ -130,7 +132,7 @@ We can finally run the server:
 python manage.py runserver
 ```
 
-Now, let's have a look at the `prod` setting you need to setup to deploy and run the app on AWS:
+Now, let's have a look at the `prod` settings you need to setup to deploy and run the app on AWS:
 
 ## 🐍 AWS S3
 
@@ -191,7 +193,7 @@ python manage.py createsuperuser
 
 ## 🐍 AWS Beanstalk
 
-You cna have a look at this [EB guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html) on deploying django app to EB.
+You can have a look at this [EB guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html) on deploying django app to Elastic Beanstalk.
 
 First, we need to be sure all the packages are present in the requirements.txt:
 
@@ -234,7 +236,7 @@ eb deploy
 
 I personally use **GoDaddy** as DNS manager but you can use the one of your choice.
 
-Fo HTTPS, we can create SSL certificate using AWS Certificate Manager for the subdomain (in my case `blog.loicblanchard.me`).
+For HTTPS, we can create SSL certificate using AWS Certificate Manager for the subdomain (in my case `blog.loicblanchard.me`).
 
 Note: ACM provides the CNAME record name and value. For the name, it will provide something like this:
 `_SOME-NUMBERS-HERE.blog.loicblanchard.me.` but we need to only enter `_SOME-NUMBERS-HERE.blog` in GoDaddy record name for it to work.
@@ -249,7 +251,7 @@ Update the `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` with the subdomain and red
 
 ## 🐍 Contributions
 
-Feel free to open new issues if you find bugs or want to add new features.
+Feel free to open new issues if you discover bugs or wish to add new features.
 
 ## 🐍 Disclaimer
 
