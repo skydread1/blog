@@ -27,9 +27,7 @@ environ.Env.read_env(env_file=base('.env'), overwrite=True) # reading .env file
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -43,7 +41,8 @@ INSTALLED_APPS = [
     "blog",
     "members",
     "markdownx",
-    "fontawesomefree"
+    "fontawesomefree",
+    "ebhealthcheck.apps.EBHealthCheckConfig"
 ]
 
 MIDDLEWARE = [
@@ -76,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "loicblog.wsgi.application"
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -95,7 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -106,7 +103,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

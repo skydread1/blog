@@ -2,7 +2,7 @@ from loicblog.settings.common import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["blog.loicblanchard.me", "*"] # add localhost for local testing
+ALLOWED_HOSTS = ["blog.loicblanchard.me"]
 
 CSRF_TRUSTED_ORIGINS = ['https://blog.loicblanchard.me']
 
