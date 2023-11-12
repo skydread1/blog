@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "blog",
     "members",
     "markdownx",
-    "fontawesomefree"
+    "fontawesomefree",
+    "ebhealthcheck.apps.EBHealthCheckConfig"
 ]
 
 MIDDLEWARE = [
