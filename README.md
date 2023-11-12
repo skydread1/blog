@@ -256,3 +256,9 @@ Feel free to open new issues if you discover bugs or wish to add new features.
 ## 🐍 Disclaimer
 
 Using this AWS setup should be practically free within the AWS free tier (as of Nov 12th 2023). Once your free tier expires, expect around $50/month for a low traffic blog (it is just an estimation).
+
+## 🐍 License
+
+Copyright © 2023 Loic Blanchard
+
+Distributed under the MIT License - see the [LICENSE](./LICENSE) file for details.
