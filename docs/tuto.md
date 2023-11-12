@@ -1,8 +1,10 @@
-# 🐍 How to create the blog from scratch [WIP] 🐍
+# 🐍 Thought process [WIP] 🐍
 
 If you want to treat this project as a tuto and step by step build your app, I will give general guidelines on why I used certain libraries and what they achieve.
 
 *Note: It is still a work in progress.*
+
+You can view this document as the note I regularly took while learning how to develop a django app and how to deploy it.
 
 ## Start python env
 
@@ -186,6 +188,14 @@ pip install gunicorn
 ### EB config
 
 Can be found in `.ebextensions/django.config`
+
+### django-ebhealthcheck
+
+From their README:
+
+>By default, Elastic Beanstalk's health check system uses the public IP of each load balanced instance as the request's host header when making a request. Unless added to ALLOWED_HOSTS, this causes Django to return a 400 Bad Request and a failed health check.
+
+>This app dynamically adds your instance's public IP address to Django's ALLOWED_HOSTS setting to permit health checks to succeed. This happens upon application start.
 
 ### AWS CLI EB
 
